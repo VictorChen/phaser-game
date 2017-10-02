@@ -1,13 +1,13 @@
 /* globals __DEV__ */
-import Phaser from 'phaser'
-import Mushroom from '../sprites/Mushroom'
-import Player from '../sprites/Player'
+import Phaser from 'phaser-ce';
+// import Mushroom from '../sprites/Mushroom';
+import Player from '../sprites/Player';
 
 export default class extends Phaser.State {
   init() {
     if (__DEV__) {
       //  Advanced profiling, including the fps rate, fps min/max, suggestedFps and msMin/msMax are updated
-      game.time.advancedTiming = true;
+      this.game.time.advancedTiming = true;
     }
   }
 
@@ -61,7 +61,7 @@ export default class extends Phaser.State {
 
   update() {
     // Collide the player and the stars with the platforms
-    const hitPlatform = game.physics.arcade.collide(this.player, this.platforms);
+    const hitPlatform = this.game.physics.arcade.collide(this.player, this.platforms);
     const cursors = this.game.input.keyboard.createCursorKeys();
 
     // Allow the player to jump if they are touching the ground.
@@ -70,7 +70,7 @@ export default class extends Phaser.State {
     }
   }
 
-  render () {
+  render() {
     if (__DEV__) {
       const worldWidth = this.game.world.width;
       const worldHeight = this.game.world.height;

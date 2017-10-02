@@ -1,4 +1,4 @@
-import Phaser from 'phaser'
+import Phaser from 'phaser-ce';
 
 export default class extends Phaser.Sprite {
   constructor({ game, x, y, asset }) {
@@ -21,7 +21,7 @@ export default class extends Phaser.Sprite {
     this.animations.add('right', [5, 6, 7, 8], 10, true);
   }
 
-  update () {
+  update() {
     const cursors = this.game.input.keyboard.createCursorKeys();
 
     //  Reset the players velocity (movement)
